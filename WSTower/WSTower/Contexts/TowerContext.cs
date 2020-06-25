@@ -24,8 +24,8 @@ namespace WSTower.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-0VF65US\\SQLEXPRESS; Initial Catalog=Campeonato;integrated Security=True");
+                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-0VF65US\\SQLEXPRESS; Initial Catalog=Campeonato;integrated Security=True");
+                //optionsBuilder.UseSqlServer("Data Source=LAPTOP-1S31Q3D7\\SQLEXPRESS; Initial Catalog=Campeonato;integrated Security=True");
             }
         }
 
@@ -64,7 +64,8 @@ namespace WSTower.Domains
                 entity.HasOne(d => d.Selecao)
                     .WithMany(p => p.Jogador)
                     .HasForeignKey(d => d.SelecaoId)
-                    .HasConstraintName("FK__Jogador__Selecao__3C69FB99");
+                    //Douglas.HasConstraintName("FK__Jogador__Selecao__3C69FB99");
+                    //Thiago.HasConstraintName("FK__Jogador__Selecao__2A4B4B5E");
             });
 
             modelBuilder.Entity<Jogo>(entity =>
@@ -79,12 +80,13 @@ namespace WSTower.Domains
                 entity.HasOne(d => d.SelecaoCasaNavigation)
                     .WithMany(p => p.JogoSelecaoCasaNavigation)
                     .HasForeignKey(d => d.SelecaoCasa)
-                    .HasConstraintName("FK__Jogo__SelecaoCas__3F466844");
-
+                    //Douglas.HasConstraintName("FK__Jogo__SelecaoCas__3F466844");
+                    //Thiago.HasConstraintName("FK__Jogo__SelecaoCas__2D27B809");
                 entity.HasOne(d => d.SelecaoVisitanteNavigation)
                     .WithMany(p => p.JogoSelecaoVisitanteNavigation)
                     .HasForeignKey(d => d.SelecaoVisitante)
-                    .HasConstraintName("FK__Jogo__SelecaoVis__403A8C7D");
+                    //Douglas.HasConstraintName("FK__Jogo__SelecaoVis__403A8C7D");
+                    //Thiago.HasConstraintName("FK__Jogo__SelecaoVis__2E1BDC42");
             });
 
             modelBuilder.Entity<Selecao>(entity =>
@@ -106,11 +108,21 @@ namespace WSTower.Domains
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasIndex(e => e.Apelido)
+                    /* Douglas
                     .HasName("UQ__Usuario__571DBAE64F3250D5")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Email)
                     .HasName("UQ__Usuario__A9D1053408C36103")
+                    */
+                    
+                    /* Thiago
+                    .HasName("UQ__Usuario__571DBAE648DFD029")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Email)
+                    .HasName("UQ__Usuario__A9D1053423614F54")
+                    */
                     .IsUnique();
 
                 entity.Property(e => e.Apelido)
