@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "a9a613f6-113d-4c22-9cdb-2e98f143128d",
+		"name": "WSTowe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/api/Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				},
+				"description": "Listar Todos os Usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/Cadastro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"Douglas@email.com\",\r\n    \"senha\":\"123123\",\r\n    \"nome\":\"Douglas\",\r\n    \"apelido\":\"Dougrinhas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Cadastro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Cadastro"
+					]
+				},
+				"description": "Cadastra Usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"apelido\": \"Dougrinhas\",\r\n    \"seha\":\"123123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Login"
+					]
+				},
+				"description": "Login de Usuario"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
