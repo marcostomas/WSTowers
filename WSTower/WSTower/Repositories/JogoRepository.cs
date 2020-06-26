@@ -69,6 +69,7 @@ namespace WSTower.Repositories
 
         public List<Jogo> ListarPorData(string DataJogo)
         {
+          
             return dbx.Jogo.Where(u => u.Data==DateTime.Parse(DataJogo)).ToList();
         }
 
