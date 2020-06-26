@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WSTower.Domains;
+using WSTower.ViewModel;
 
 namespace WSTower.Interfaces
 {
@@ -13,5 +14,9 @@ namespace WSTower.Interfaces
         List<Usuario> ListarTodos();
 
         Usuario Login(string email,string senha,string apelido);
+
+        void AlterarUsuario(int id, Usuario usuario);
+
+        void AlterarSenha(int id,LoginViewModel login);
     }
 }

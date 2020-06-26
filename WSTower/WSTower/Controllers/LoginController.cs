@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WSTower.Domains;
 using WSTower.Repositories;
+using WSTower.ViewModel;
 
 namespace WSTower.Controllers
 {
@@ -14,25 +15,37 @@ namespace WSTower.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-            UsuarioRepository _Usuario { get; set; }
+        UsuarioRepository _Usuario { get; set; }
 
         public LoginController()
         {
             _Usuario = new UsuarioRepository();
         }
         [HttpPost]
-        public IActionResult Login(Usuario usuarioLogin)
+        public IActionResult Login(LoginViewModel usuarioLogin)
         {
-           Usuario UserAchado=_Usuario.Login(usuarioLogin.Email,usuarioLogin.Senha,usuarioLogin.Apelido);
+            Usuario UserAchado = _Usuario.Login(usuarioLogin.Email, usuarioLogin.Senha, usuarioLogin.Apelido);
 
-            if (UserAchado != null)
+            if(UserAchado!=null)
             {
-                return Ok("Bem vindo:"+UserAchado.Apelido);
+                if (UserAchado.Senha == usuarioLogin.Senha)
+                {
+                    return Ok("Bem vindo:" + UserAchado.Apelido);
+                }
+                else
+                {
+                    return BadRequest("Senha incorreta");
+                }
             }
-            
+            return BadRequest("Usuario nao encontrado");
+        }
 
-            return BadRequest("Usuario ou senha incorreto");
+        [HttpPut("{id}")]
+        public IActionResult TrocaSenha(int id,LoginViewModel Login)
+        {
+            _Usuario.AlterarSenha(id,Login);
 
+            return Ok();
         }
     }
         

@@ -20,10 +20,22 @@ namespace WSTower.Controllers
             _Selecao = new SelecaoRepository();
         }
 
-        [HttpGet]
-        public IActionResult ListarTodos()
+        [HttpGet("ListarTodosSelecoes")]
+        public IActionResult ListarTodosSelecoes()
+        {
+            return Ok(_Selecao.ListarTodos());
+        }
+
+        [HttpGet("ListarTodosJogador")]
+        public IActionResult ListarTodosJogador()
         {
             return Ok(_Selecao.ListarComJogador());
+        }
+
+        [HttpGet("ListarTodosJogadorConfronto")]
+        public IActionResult ListarTodosJogadorConfronto()
+        {
+            return Ok(_Selecao.ListarConfrontos());
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WSTower.Domains;
 using WSTower.Repositories;
 
 namespace WSTower.Controllers
@@ -24,6 +25,14 @@ namespace WSTower.Controllers
         public IActionResult ListarUsuario()
         {
             return Ok(_Usuario.ListarTodos());
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizarUsuario(int id,Usuario usuarioAtualizado)
+        {
+            _Usuario.AlterarUsuario(id, usuarioAtualizado);
+
+            return Ok();
         }
     }
 }

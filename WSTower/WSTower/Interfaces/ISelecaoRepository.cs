@@ -11,5 +11,9 @@ namespace WSTower.Interfaces
         List<Selecao> ListarTodos();
 
         List<Selecao> ListarComJogador();
+
+        List<Selecao> ListarConfrontos();
+
+
     }
 }

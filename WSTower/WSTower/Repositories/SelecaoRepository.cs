@@ -18,6 +18,11 @@ namespace WSTower.Repositories
             return dbx.Selecao.Include(s=>s.Jogador).ToList();
         }
 
+        public List<Selecao> ListarConfrontos()
+        {
+            return dbx.Selecao.Include(s => s.JogoSelecaoCasaNavigation).Include(f=>f.JogoSelecaoVisitanteNavigation).Include(d=>d.Jogador).ToList();
+        }
+
         public List<Selecao> ListarTodos()
         {
             return dbx.Selecao.ToList();
