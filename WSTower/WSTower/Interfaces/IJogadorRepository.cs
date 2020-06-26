@@ -10,7 +10,7 @@ namespace WSTower.Interfaces
     {
         List<Jogador> ListarTodos();
 
-        Jogador BuscarPorId(int id);
+        Jogador BuscarPorNome(string nome);
 
         
 

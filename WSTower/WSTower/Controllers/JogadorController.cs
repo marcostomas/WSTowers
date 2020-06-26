@@ -21,12 +21,28 @@ namespace WSTower.Controllers
             _jogadorRepository = new JogadorRepository();
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+
+        [HttpGet]
+        public IActionResult Listar()
         {
             try
             {
-                Jogador jogadorBuscado = _jogadorRepository.BuscarPorId(id);
+                return Ok(_jogadorRepository.ListarTodos());
+            }
+            catch(Exception error)
+            {
+                return BadRequest(error);
+            }
+        }
+
+
+
+        [HttpGet("{nome}")]
+        public IActionResult GetByNome(string nome)
+        {
+            try
+            {
+                Jogador jogadorBuscado = _jogadorRepository.BuscarPorNome(nome);
 
                 if(jogadorBuscado != null)
                 {

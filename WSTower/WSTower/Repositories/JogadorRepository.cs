@@ -17,24 +17,59 @@ namespace WSTower.Repositories
             return ctx.Jogador.ToList();
         }
 
-        public Jogador BuscarPorId(int id)
-        {
-            Jogador jogadorBuscado = ctx.Jogador.FirstOrDefault(j=>j.Id==id);
 
-            if (jogadorBuscado != null)
-            {
-                return jogadorBuscado;
-            }
+		public Jogador BuscarPorNome(string nome)
+	{
+		Jogador jogadorBuscado = ctx.Jogador.Select(j => new Jogador()
+		{
+			Id = j.Id,
+			Foto = j.Foto,
+			Posicao = j.Posicao,
+			Nome = j.Nome,
+			Nascimento = j.Nascimento,
+			NumeroCamisa = j.NumeroCamisa,
+			Qtdegols = j.Qtdegols,
+			QtdecartoesAmarelo = j.QtdecartoesAmarelo,
+			QtdecartoesVermelho = j.QtdecartoesVermelho,
+			Qtdefaltas = j.Qtdefaltas,
+			Informacoes = j.Informacoes,
+			SelecaoId = j.SelecaoId,
 
-            return null;
-    
-        }
-
-      
-
-
+			Selecao = new Selecao()
+			{
+				Bandeira = j.Selecao.Bandeira,
+				Nome = j.Selecao.Nome
+			}
 
 
-       
-    }
+		}).FirstOrDefault(j => j.Nome == nome);
+
+		if (jogadorBuscado != null)
+		{
+
+			if (jogadorBuscado.Posicao == "Goleiro")
+			{
+
+				jogadorBuscado.NumeroCamisa = 0;
+
+			}
+
+
+			return jogadorBuscado;
+		}
+
+		return null;
+
+	}
+
+
+
+
+
+
+
+
+
+
+	}
 }
