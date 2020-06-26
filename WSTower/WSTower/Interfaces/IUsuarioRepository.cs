@@ -15,8 +15,12 @@ namespace WSTower.Interfaces
 
         Usuario Login(string email,string senha,string apelido);
 
-        void AlterarUsuario(int id, Usuario usuario);
+        bool AlterarUsuario(int id, Usuario usuario);
 
         void AlterarSenha(int id,LoginViewModel login);
+
+        bool BuscarPorEmail(string email);
+
+        bool BuscarPorApelido(string apelido);
     }
 }

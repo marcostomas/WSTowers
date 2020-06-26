@@ -108,22 +108,22 @@ namespace WSTower.Domains
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasIndex(e => e.Apelido)
-                    
+                    /* 
                     .HasName("UQ__Usuario__571DBAE64F3250D5")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Email)
                     .HasName("UQ__Usuario__A9D1053408C36103")
+                    */
 
 
-                    /* Douglas
                     .HasName("UQ__Usuario__571DBAE648DFD029")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Email)
                     .HasName("UQ__Usuario__A9D1053423614F54")
-                    */
                     
+
                     .IsUnique();
 
                 entity.Property(e => e.Apelido)

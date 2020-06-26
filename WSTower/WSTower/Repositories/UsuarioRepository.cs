@@ -27,8 +27,10 @@ namespace WSTower.Repositories
             dbx.SaveChanges();
         }
 
-        public void AlterarUsuario(int id, Usuario UsuarioAtualizado)
+        public bool AlterarUsuario(int id, Usuario UsuarioAtualizado)
         {
+            try
+            {     
             Usuario usuarioBuscado = dbx.Usuario.Find(id);
 
             if (UsuarioAtualizado.Email != null)
@@ -59,13 +61,42 @@ namespace WSTower.Repositories
             dbx.Update(usuarioBuscado);
 
             dbx.SaveChanges();
+                return true;
+
+            }catch(Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool BuscarPorApelido(string apelido)
+        {
+            var Apelidobuscado = dbx.Usuario.FirstOrDefault(u => u.Apelido == apelido);
+
+            if (Apelidobuscado != null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool BuscarPorEmail(string email)
+        {
+            var emailbuscado= dbx.Usuario.FirstOrDefault(u=>u.Email==email);
+
+            if (emailbuscado != null)
+            {
+                return false;
+            }
+
+            return true;   
         }
 
         public void Cadastar(Usuario usuario)
         {
-            dbx.Usuario.Add(usuario);
+                dbx.Usuario.Add(usuario);
 
-            dbx.SaveChanges();
+                dbx.SaveChanges();
         }
 
         public List<Usuario> ListarTodos()
