@@ -46,6 +46,7 @@ namespace WSTower.Controllers
         [HttpGet("DataJogo/{dataJogo}")]
         public IActionResult DataJogo(string dataJogo)
         {
+
             return Ok(_Jogo.ListarPorData(dataJogo));
         }
 

@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "64f2dedf-b874-453b-90fe-8eeac0a499ce",
+		"name": "WSTower",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JogosController",
+			"item": [
+				{
+					"name": "ListarJogos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos"
+							]
+						},
+						"description": "Lista todos os jogos\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "CadastraJogo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos"
+							]
+						},
+						"description": "Cadastra um jogo passando um objeto preenchido"
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizarPorId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos/IDJogo",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos",
+								"IDJogo"
+							]
+						},
+						"description": "atualiza um jogo passando o id na url e o objeto no corpo"
+					},
+					"response": []
+				},
+				{
+					"name": "PegarPorData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos/DataJogo/2020-05-10",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos",
+								"DataJogo",
+								"2020-05-10"
+							]
+						},
+						"description": "Busca um jogo passando a data(em formato americano)na url"
+					},
+					"response": []
+				},
+				{
+					"name": "PegarPeloNomeDoEstadio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos/NomeEstadio/Maracanã",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos",
+								"NomeEstadio",
+								"Maracanã"
+							]
+						},
+						"description": "Busca um estadio passando o nome na url"
+					},
+					"response": []
+				},
+				{
+					"name": "PegarPeloNomeDaSelecao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos//Selecao/Brasil",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos",
+								"",
+								"Selecao",
+								"Brasil"
+							]
+						},
+						"description": "Busca uma selecao passando o nome na url"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "UsuarioController",
+			"item": [
+				{
+					"name": "ListarUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Usuario",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Usuario"
+							]
+						},
+						"description": "Lista todos os usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "AlteraPropriedadesdoUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/Usuario/IDusuario",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Usuario",
+								"IDusuario"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CadastroController",
+			"item": [
+				{
+					"name": "CadastraUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Cadastro",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Cadastro"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "SelecaoController",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "LoginController",
+			"item": [
+				{
+					"name": "FazLoginUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}//Login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AlteraSenhaPeloId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Login/IDusuario",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Login",
+								"IDusuario"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "6ba312e2-64e1-4486-8e29-7f12ef28a6ac",
+			"key": "URL",
+			"value": "http://localhost:5000/api/"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
