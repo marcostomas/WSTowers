@@ -26,11 +26,13 @@ namespace WSTower.Controllers
         {
             if (usuarioNovo.Email == null || usuarioNovo.Senha == null || usuarioNovo.Apelido == null||usuarioNovo.Nome==null)
             {
-                BadRequest("Preencha todos os campos");
+                return BadRequest("Preencha todos os campos");
             }
-            _Usuario.Cadastar(usuarioNovo);
-
-            return Ok("Usuario cadastrado");
+            else
+            {
+                _Usuario.Cadastar(usuarioNovo);
+                return Ok("Usuario cadastrado");
+            }
         }
 
     }

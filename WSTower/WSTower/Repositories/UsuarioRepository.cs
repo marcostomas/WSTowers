@@ -61,11 +61,12 @@ namespace WSTower.Repositories
             dbx.SaveChanges();
         }
 
+
         public void Cadastar(Usuario usuario)
         {
-            dbx.Usuario.Add(usuario);
+                dbx.Usuario.Add(usuario);
 
-            dbx.SaveChanges();
+                dbx.SaveChanges();
         }
 
         public List<Usuario> ListarTodos()
