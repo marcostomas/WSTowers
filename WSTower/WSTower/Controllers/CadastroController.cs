@@ -24,14 +24,29 @@ namespace WSTower.Controllers
         [HttpPost]
         public IActionResult Cadastro(Usuario usuarioNovo)
         {
-            if (usuarioNovo.Email == null || usuarioNovo.Senha == null || usuarioNovo.Apelido == null||usuarioNovo.Nome==null)
+            
+            if (usuarioNovo.Email == null || usuarioNovo.Senha == null || usuarioNovo.Apelido == null||usuarioNovo.Nome==null||usuarioNovo.Foto==null)
             {
                 return BadRequest("Preencha todos os campos");
             }
             else
             {
-                _Usuario.Cadastar(usuarioNovo);
-                return Ok("Usuario cadastrado");
+                if (_Usuario.BuscarPorEmail(usuarioNovo.Email))
+                {
+                    if (_Usuario.BuscarPorApelido(usuarioNovo.Apelido))
+                    {
+                        _Usuario.Cadastar(usuarioNovo);
+                        return Ok("Usuario cadastrado");
+                    }
+                    else
+                    {
+                        return BadRequest("Esse apelido ja existe");
+                    }                   
+                }
+                else
+                {
+                    return BadRequest("Esse email ja existe");
+                }    
             }
         }
 
