@@ -1,3 +1,8 @@
+Select * from Usuario;
+Select * from Jogo
+Select * from Selecao
+
+
 USE [Campeonato]
 GO
 INSERT [Dbo].[Jogador] ([Nome], [Nascimento], [Posicao], [QTDEFaltas], [QTDECartoesAmarelo], [QTDECartoesVermelho], [Informacoes], [NumeroCamisa], [Selecaoid], [QTDEGols]) VALUES ('Manuel Neuer', CAST('1980-01-01T00:00:00.000' AS DATETIME), 'Goleiro', 0, 0, 0, 'Nenhuma', 1, 1, 2)

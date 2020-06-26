@@ -24,7 +24,7 @@ namespace WSTower.Controllers
         [HttpPost]
         public IActionResult Cadastro(Usuario usuarioNovo)
         {
-            if (usuarioNovo.Email == null || usuarioNovo.Senha == null || usuarioNovo.Apelido == null||usuarioNovo.Apelido==null)
+            if (usuarioNovo.Email == null || usuarioNovo.Senha == null || usuarioNovo.Apelido == null||usuarioNovo.Nome==null)
             {
                 BadRequest("Preencha todos os campos");
             }
