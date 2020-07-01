@@ -3,10 +3,10 @@ Projeto Senai Informática (1.32) - WS Towers - 2º Termo
 
 ## Colaboradores
 
-André Akira <a href="https://github.com/DevAndreAkira" />
+<a href="https://github.com/DevAndreAkira"> André Akira </a>
 
-Douglas Mantovani <a href="https://github.com/Douglasmantovani" />
+ <a href="https://github.com/Douglasmantovani" /> Douglas Mantovani </a>
 
-Marcos Tomás <a href="https://github.com/marcostomas" />
+ <a href="https://github.com/marcostomas" /> Marcos Tomás </a>
 
-Thiago Silva <a href="https://github.com/Thihenriquesilva" />
+<a href="https://github.com/Thihenriquesilva" /> Thiago Silva </a>
